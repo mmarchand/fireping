@@ -13,7 +13,8 @@ Installation
 
 then edit conf.js to fit your install
 
-Create your sqlite3 datate:
+Create your sqlite3 database:
+
     sqlite3 fireping.db
     > CREATE TABLE targets (id INTEGER PRIMARY KEY, target VARCHAR(15), hostname VARCHAR(255));
 
