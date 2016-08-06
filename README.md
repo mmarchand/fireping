@@ -26,5 +26,5 @@ there is a very basic web UI which is only used to add new targets to the sqlite
 http://127.0.0.1:3000/targets/add
 or you can push them in DB directly of course
 
-Use grafana to make beautiful graphs ;)
+Use grafana to make beautiful graphs ;) (sample dashboard provided in grafana-dashboard.json file)
 
