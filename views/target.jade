@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  div
+    form(action='/targets/add',method='post')
+      div(data-role='fieldcontain')
+        fieldset(data-role='controlgroup')
+          label(for='target') Target IP: 
+             input(id='target',type='text',value='',placeholder='',name='target')
+          label(for='hostname') Hostname: 
+             input(id='hostname',type='text',value='',placeholder='',name='hostname')
+
+      div(data-role='fieldcontain')   
+          input(type='submit',value='Add Target',data-transition='fade', data-theme='c')  

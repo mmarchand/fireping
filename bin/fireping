@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+var debug = require('debug')('fireping');
+var app = require('../app');
+var pinger = require ('../pinger');
+var global = require ('../conf.js');
+
+app.set('port', process.env.PORT || global.webport);
+app.set('host', process.env.HOST || global.webip);
+
+var server = app.listen(app.get('port'), app.get('host'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
