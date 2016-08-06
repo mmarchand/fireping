@@ -18,6 +18,10 @@ Create your sqlite3 database:
     sqlite3 fireping.db
     > CREATE TABLE targets (id INTEGER PRIMARY KEY, target VARCHAR(15), hostname VARCHAR(255));
 
+Run with :
+
+    npm start 
+
 there is a very basic web UI which is only used to add new targets to the sqlite3 db for now, use this link:
 http://127.0.0.1:3000/targets/add
 or you can push them in DB directly of course
