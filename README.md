@@ -28,3 +28,5 @@ or you can push them in DB directly of course
 
 Use grafana to make beautiful graphs ;) (sample dashboard provided in grafana-dashboard.json file)
 
+![Alt text](/fireping.png?raw=true "FirePing Dashboard")
+
