@@ -11,6 +11,7 @@ var ival = global.ival; //ms
 var cping = global.cping; //count
 var tping = global.tping; //ms
 var pingtimeout = global.pingtimeout; //ms
+var pinghost = global.srchost;
 var results = [];
 var losses = [];
 var pingerItv;
@@ -69,8 +70,8 @@ function dumpResults (ip) {
   var dt = new Date();
   ttlip = average(results[ip]);
   lossip =  losses[ip].length*100/20;
-  var points = [ [ { value: ttlip, time: dt}, { srchost: 'ping.online.net', host: hosts[ip].replace(/\./g, "_") } ] ];
-  var points2 = [ [ { value: lossip, time: dt}, { srchost: 'ping.online.net', host: hosts[ip].replace(/\./g, "_") } ] ];
+  var points = [ [ { value: ttlip, time: dt}, { srchost: pinghost, host: hosts[ip].replace(/\./g, "_") } ] ];
+  var points2 = [ [ { value: lossip, time: dt}, { srchost: pinghost, host: hosts[ip].replace(/\./g, "_") } ] ];
 
   var series = {
     "ttl": points,

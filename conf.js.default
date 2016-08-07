@@ -14,3 +14,5 @@ infdb = "infdb";
 //webserv
 webip = "127.0.0.1";
 webport = 3000;
+//host description for this ping location
+exports.srchost = "localhost";
