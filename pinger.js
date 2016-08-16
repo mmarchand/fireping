@@ -3,7 +3,7 @@ var ping = require ("net-ping");
 var sqlite3 = require ("sqlite3");
 var influx = require ("influx");
 var colors = require('colors');
-var global = require('./conf');
+var global = require('./conf.js');
 
 var targets = [];
 var hosts = [];

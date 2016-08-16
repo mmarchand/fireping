@@ -7,12 +7,12 @@ exports.tping = 200; //ms
 //ping timeout
 exports.pingtimeout = 2000; //ms
 //influxdb
-infhost = "127.0.0.1";
-infuser = "infuser";
-infpass = "infpass";
-infdb = "infdb";
+exports.infhost = "127.0.0.1";
+exports.infuser = "infuser";
+exports.infpass = "infpass";
+exports.infdb = "infdb";
 //webserv
-webip = "127.0.0.1";
-webport = 3000;
+exports.webip = "127.0.0.1";
+exports.webport = 3001;
 //host description for this ping location
 exports.srchost = "localhost";
