@@ -13,6 +13,6 @@ exports.infpass = "infpass";
 exports.infdb = "infdb";
 //webserv
 exports.webip = "127.0.0.1";
-exports.webport = 3001;
+exports.webport = "3000";
 //host description for this ping location
 exports.srchost = "localhost";

@@ -16,7 +16,34 @@ var results = [];
 var losses = [];
 var pingerItv;
 var db = new sqlite3.Database('fireping.db');
-var infdb = influx ({ host : global.infhost, username: global.infuser, password: global.infpass, database: global.infdb } );
+var infdb = new influx.InfluxDB({
+	 host: global.infhost,
+	  database: global.infdb,
+		username: global.infuser,
+		password: global.infpass,
+		 schema: [
+		 {
+			 measurement: 'ttl',
+			 fields: {
+				 value: influx.FieldType.FLOAT
+			 },
+			 tags: [
+				 'host',
+				 'srchost'
+			 ]
+		 },
+		 {
+			 measurement: 'loss',
+			 fields: {
+				 value: influx.FieldType.FLOAT
+			 },
+			 tags: [
+				 'host',
+				 'srchost'
+			 ]
+		 }
+	  ]
+})
 
 // Default options
 var options = {
@@ -70,17 +97,10 @@ function dumpResults (ip) {
   var dt = new Date();
   ttlip = average(results[ip]);
   lossip =  losses[ip].length*100/20;
-  var points = [ [ { value: ttlip, time: dt}, { srchost: pinghost, host: hosts[ip].replace(/\./g, "_") } ] ];
-  var points2 = [ [ { value: lossip, time: dt}, { srchost: pinghost, host: hosts[ip].replace(/\./g, "_") } ] ];
-
-  var series = {
-    "ttl": points,
-    "loss": points2
-  };
-  infdb.writeSeries(series, function(err) {
-    if (err)
-      console.error(err);
-  });
+	var pt = [ { measurement: 'ttl', tags : { 'host': hosts[ip].replace(/\./g, "_"), 'srchost': pinghost }, fields: { value: ttlip }, timestamp: dt }, 
+						 { measurement: 'loss', tags : { 'host': hosts[ip].replace(/\./g, "_"), 'srchost': pinghost }, fields: { value: lossip }, timestamp: dt }
+					]
+  infdb.writePoints(pt);
 
   //reset for next scan
   results[ip]=[];

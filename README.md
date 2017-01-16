@@ -31,3 +31,8 @@ Use grafana to make beautiful graphs ;) (sample dashboard provided in grafana-da
 	- go to http://127.0.0.1:3000 (Grafana website) => Dashboards => import => select json file grafana-dashboard.json
 ![Alt text](/fireping.png?raw=true "FirePing Dashboard")
 
+FAQ
+------------
+1. Compilation error in NPM raw_socket during npm install
+Make sure you use a recent enough g++ on your system
+
