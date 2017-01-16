@@ -34,5 +34,6 @@ Use grafana to make beautiful graphs ;) (sample dashboard provided in grafana-da
 FAQ
 ------------
 1. Compilation error in NPM raw_socket during npm install
+
 Make sure you use a recent enough g++ on your system
 
